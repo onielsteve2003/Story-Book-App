@@ -1,0 +1,30 @@
+<h1>Stories</h1>
+<div class="row">
+    {{#each stories}}
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    {{!-- Todo Edit Icon --}}
+                    {{!-- if you want to pass in html using handlebars, you have to use triple curly braces, The editIcon is in the hbs.js --}}
+                    {{{editIcon user ../user _id}}}
+                </div>
+                <div class="card-content center-align">
+                    <h5>{{title}}</h5>
+                    {{!-- This strip tags and truncate are defined in the hbs.js which is the helper file, 150 is the length because if you check the hbs.js file truncate takes 2 arguments, so we need to pass in the number of length --}}
+                    <p>{{stripTags (truncate body 150)}}</p>
+                    <br>
+                    <div class="chip">
+                        <img src="{{user.image}}" alt="">
+                        <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    {{!-- We validated this read more to function by going into the hbs.js file and adding truncate and strip tags --}}
+                    <a href="/stories/{{_id}}" class="btn grey">Read More</a>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <p>No stories to display</p>
+    {{/each}}
+</div>

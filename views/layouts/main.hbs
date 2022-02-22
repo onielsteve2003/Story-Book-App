@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>StoryBooks</title>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.17.2/ckeditor.js" integrity="sha512-QuHtmTNLFyCbmk2jGlr0URK0XiNn1G0nHYMaNfbOLQgXBiO6RllC+xFkPO5YnG6zYnRVUj6b5uSXwmJeJgOLBw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+</head>
+<body>
+    {{> _header}}
+    {{> _add_btn}}
+    <div class="container">
+        {{{body}}}
+    </div>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+    <script>
+        M.Sidenav.init(document.querySelector('.sidenav'))
+        M.FormSelect.init(document.querySelector('#status'))
+        {{!-- We did replace body because if you check the add.hbs in the textarea, u will see name field to be body so thats what we are grabbing --}}
+        CKEDITOR.replace('body', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        }) 
+    </script>
+</body>
+</html>

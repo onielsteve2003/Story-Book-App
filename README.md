@@ -1,0 +1,1 @@
+A Blog Page that allows you post your stories and set it to either be public or private, and when public, It displays so every user can see it and if private, Only u can see it unless you set it to be public
